@@ -1,0 +1,43 @@
+{% set pageTitle = "You do not need an isolation note" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set version = "v3" %}
+
+{% extends "includes/layout.html" %}
+
+{% block backLink %}
+<div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="/{{version}}/screener-question-why">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Go back
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">You do not need an isolation note</h1>
+      <p>You can only get an isolation note if:
+        <ul>
+          <li>you have symptoms of coronavirus</li>
+          <li>you live with someone who has symptoms of coronavirus</li>
+          <li>you are in a support bubble with someone who has symptoms of coronavirus</li>
+          <li>you have been told to self-isolate by a test and trace service</li>
+      </ul>
+      
+      <h2 class="nhsuk-heading-m">If you are at higher risk from coronavirus</h2>
+      <p>If you are at higher risk from coronavirus, work from home if possible. Your employer should support you to do this.</p>
+      <p>If you cannot work from home and are concerned about having to go to work, talk to your employer. Employers should make sure suitable arrangements are in place so you can go to work.</p>
+        
+      <p>For more advice on working and the support you can get, see <a href="https://www.gov.uk/coronavirus/worker-support">GOV.UK: Work and financial support</a>.</p>
+
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>Find more <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/people-at-higher-risk/">advice for people at higher risk from coronavirus</a>.</p>
+      </div>
+      </div>
+{% endblock %}

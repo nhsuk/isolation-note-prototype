@@ -1,0 +1,65 @@
+{% set pageTitle = "Check an isolation note" %}
+{% set pageDescription = "Use this service if you are an employer and want to check that a coronavirus isolation note is valid." %}
+{% set version = "v3" %}
+ 
+{% extends "includes/layout.html" %}
+
+{% block header %}
+<header class="nhsuk-header nhsuk-header--transactional" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo nhsuk-header__logo--only"><a class="nhsuk-header__link" href="/check" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
+          <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
+          <path class="nhsuk-logo__text" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+          <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
+        </svg>
+      </a>
+    </div>
+    <div class="nhsuk-header__transactional-service-name nhsuk-header__transactional-service-name--long">
+      <a class="nhsuk-header__transactional-service-name--link" href="/check">Check an isolation note</a>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-u-margin-bottom-5">Check an isolation note</h1>
+      <p>Use this service if you are an employer and want to check that a coronavirus isolation note is valid.</p>
+      <p>An isolation note is proof that an employee has been told to self-isolate because of coronavirus and therefore cannot go to work.</p>
+      <h2 class="nhsuk-heading-m">Before you start</h2>
+      <p>To check an isolation note is valid, you need:</p>
+      <ul>
+        <li>the 16 digit reference number on the isolation note</li>
+        <li>the employee's date of birth</li>
+      </ul>
+         
+      <a class="nhsuk-button" href="/{{version}}/check/reference-number">Start now</a>
+      
+      <p>By using this service you are agreeing to our <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/isolation-note/terms/" target="_blank" rel="noopener noreferrer">terms of use</a> and <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/isolation-note/privacy/" target="_blank" rel="noopener noreferrer">privacy policy</a>.</p>
+      <h2 class="nhsuk-heading-m">What you need to know as an employer</h2> 
+      <p>Isolation notes are for employees who:</p>
+      <ul>
+        <li>have symptoms of coronavirus</li>
+        <li>live with someone who has symptoms of coronavirus</li>
+        <li>are in a support bubble with someone who has symptoms of coronavirus</li>
+        <li>have been told to self-isolate by a test and trace service</li>
+      </ul>
+      <p>Use your discretion around the need for medical evidence if an employee has been told to stay at home because of coronavirus.</p>
+      <p>If you need evidence that an employee cannot work because of coronavirus, ask them to get an isolation note.</p>
+      <p>Employees who cannot work because of coronavirus should avoid asking their GP for a fit note. This is to let doctors focus on their patients.</p>
+      
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p><strong>Working from home</strong></p>
+        <p>To prevent the spread of coronavirus, you should encourage your employees to work from home, wherever possible.</p>
+        <p>If an employee is well enough to work, and can work from home, they do not need an isolation note.</p>
+      </div>
+
+      <p>Find more detailed <a href="https://www.gov.uk/guidance/working-safely-during-coronavirus-covid-19">guidance on working safely during coronavirus on GOV.UK</a></p>
+    </div>
+
+  </div>
+{% endblock %}
