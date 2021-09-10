@@ -1,0 +1,84 @@
+{% set pageTitle = "Why do you have to self-isolate" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set version = "v5" %}
+
+{% extends "includes/layout.html" %}
+
+{% block backLink %}
+<div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="/{{version}}/screener-question">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Go back
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form method="post" action="/{{version}}/screener-question-why/answer">
+
+        <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Why do you have to self-isolate?
+              </h1>
+            </legend>
+
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="isolation-1" name="isolation-why" type="radio" value="I have symptoms of coronavirus">
+                <label class="nhsuk-label nhsuk-radios__label" for="isolation-1">
+                  I have symptoms of coronavirus
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="isolation-2" name="isolation-why" type="radio" value="I live with someone who has symptoms of coronavirus">
+                <label class="nhsuk-label nhsuk-radios__label" for="isolation-2">
+                  I live with someone who has symptoms of coronavirus and I have not been fully vaccinated
+                </label>
+              </div>
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="isolation-4" name="isolation-why" type="radio" value="I have been told to self-isolate by a test and trace service">
+                <label class="nhsuk-label nhsuk-radios__label" for="isolation-4">
+                  I have been told to self-isolate by a test and trace service or the NHS COVID-19 app and I have not been fully vaccinated
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="isolation-5" name="isolation-why" type="radio" value="I am at higher risk from coronavirus">
+                <label class="nhsuk-label nhsuk-radios__label" for="isolation-5">
+                  I am at higher risk from coronavirus
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+        </div>
+
+        <details class="nhsuk-details">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Why are we asking this?
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <p>We need to include this information on your isolation note.</p>
+          </div>
+        </details>
+
+        <button class="nhsuk-button" type="submit">
+          Continue
+        </button>
+
+      </form>
+
+    </div>  
+  </div>
+{% endblock %}

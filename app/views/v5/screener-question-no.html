@@ -1,0 +1,31 @@
+{% set pageTitle = "You do not need an isolation note" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set version = "v5" %}
+
+{% extends "includes/layout.html" %}
+
+{% block backLink %}
+<div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="/{{version}}/screener-question">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Go back
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">You do not need an isolation note</h1>
+      <p>You can only get an isolation note if:</p>
+      <ul>
+        <li>you have been told to self-isolate by the NHS website, NHS Test and Trace, NHS 111, 111 online, NHS inform, NHS 111 Wales, Covid-19 NI app or Public Health Agency (Northern Ireland)</li>
+      </ul>
+      <p>If you are not sure if you need to self-isolate, <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">get the latest NHS advice on coronavirus</a>.</p>
+
+    </div>  
+  </div>
+{% endblock %}

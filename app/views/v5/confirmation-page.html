@@ -1,0 +1,42 @@
+{% set pageTitle = "Your isolation note" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set version = "v5" %}
+
+{% extends "includes/layout.html" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+        <h1 class="nhsuk-heading-l">Your isolation note</h1>
+        <p>Your reference number is <span class="nhsuk-u-bold">1111 2222 3333 4444</span></p>
+        <p>We have emailed your isolation note to <span class="nhsuk-u-bold">{% if data['email'] %}{{ data['email'] }}{% else %}email@email.com{% endif %}</span></p>
+        <p>You can also download your isolation note</p>
+        <a class="nhsuk-button nhsuk-u-margin-bottom-0" href="blank.pdf">Download your note (PDF, 80KB)</a>
+      </div>
+
+      <p>Write down your reference number and keep it safe.</p>
+
+      <h2 class="nhsuk-heading-m">What you need to do next</h2>
+      <p>Send your isolation note to your employer if they ask to see it. They may check the details you've provided using the <a href="check/index">Check an isolation note service</a>.</p>
+      <p>Find <a href="https://www.understandinguniversalcredit.gov.uk/employment-and-benefits-support/">information on coronavirus and claiming benefits on GOV.UK</a>.</p>
+      
+      <h3 class="nhsuk-heading-s">If you are having problems with your note</h3>
+      <p>If the email has not arrived, check your junk mail folder.</p>
+      <p>If you need more help, visit our <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/isolation-note/help">support page</a>.</p>
+      
+      <h2 class="nhsuk-heading-m">Health advice</h2>
+      <p>Get the latest <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">NHS information on coronavirus</a>.</p>
+      
+      <p>If you need medical advice about your symptoms:</p>
+      <ul>
+        <li>England: <a href="https://111.nhs.uk/covid-19">NHS 111 online coronavirus service</a></li>
+        <li>Scotland: <a href="https://www.nhsinform.scot/illnesses-and-conditions/infections-and-poisoning/coronavirus-covid-19">NHS inform</a></li>
+          <li>Wales: <a href="https://www.nhsdirect.wales.nhs.uk/SelfAssessments/symptomcheckers/COVID19.aspx">NHS 111 Wales</a></li>
+          <li>Northern Ireland: get advice from a GP or GP out-of-hours service</li>
+      </ul>
+      
+    </div>
+  </div>
+{% endblock %}

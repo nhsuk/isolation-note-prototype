@@ -1,0 +1,63 @@
+{% set pageTitle = "Have you been told to self-isolate by an NHS service or a healthcare professional" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set version = "v5" %}
+
+{% extends "includes/layout.html" %}
+
+{% block backLink %}
+<div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="/{{version}}">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Go back
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form method="post" action="/{{version}}/screener-question/answer">
+
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Have you been told to self-isolate by an NHS service or a healthcare professional?
+              </h1>
+            </legend>
+
+            <span class="nhsuk-hint" id="self-isolate-hint">
+              For example, the NHS website, NHS Test and Trace, the NHS COVID-19 app, NHS 111, 111 online, NHS inform, NHS 111 Wales, Covid-19 NI app or Public Health Agency.
+            </span>
+            
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="self-isolate-1" name="self-isolate" type="radio" value="yes" {{ checked("self-isolate", "yes") }}>
+                <label class="nhsuk-label nhsuk-radios__label" for="self-isolate-1">
+                  Yes
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="self-isolate-2" name="self-isolate" type="radio" value="no" {{ checked("self-isolate", "no") }}>
+                <label class="nhsuk-label nhsuk-radios__label" for="self-isolate-2">
+                  No
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="nhsuk-button" type="submit">
+          Continue
+        </button>
+
+      </form>
+
+    </div>  
+  </div>
+{% endblock %}
