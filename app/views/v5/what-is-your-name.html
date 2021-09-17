@@ -1,8 +1,8 @@
+{% extends "includes/layout.html" %}
+
 {% set pageTitle = "What is your name" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 {% set version = "v5" %}
-
-{% extends "includes/layout.html" %}
 
 {% block backLink %}
 <div class="nhsuk-back-link">
@@ -20,7 +20,49 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{version}}/what-is-your-dob" method="post">
+      {% if error %}
+      {% if noFirstName %}
+        {% if noLastName %}
+          {{ errorSummary({
+            "titleText": "There is a problem",
+            "errorList": [
+              {
+                "text": "Enter your first name",
+                "href": "#first-name"
+              },
+              {
+                "text": "Enter your last name",
+                "href": "#last-name"
+              }
+            ]
+          }) }}
+        {% else %}
+          {{ errorSummary({
+            "titleText": "There is a problem",
+            "errorList": [
+              {
+                "text": "Enter your first name",
+                "href": "#first-name"
+              }
+            ]
+          }) }}
+        {% endif %}
+      {% else %}
+        {% if noLastName %}
+          {{ errorSummary({
+            "titleText": "There is a problem",
+            "errorList": [
+              {
+                "text": "Enter your last name",
+                "href": "#last-name"
+              }
+            ]
+          }) }}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+
+      <form action="/{{version}}/what-is-your-name" method="post" class="form" id="form">
 
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">

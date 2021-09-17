@@ -20,6 +20,20 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      {% if error %}
+        {% if noDate %}
+          {{ errorSummary({
+            "titleText": "There is a problem",
+            "errorList": [
+              {
+                "text": "Select an option",
+                "href": "#self-isolate-date-1"
+              }
+            ]
+          }) }}
+        {% endif %}
+      {% endif %}
+
       <form method="post" action="/{{version}}/screener-question-date/answer">
 
         <div class="nhsuk-form-group">

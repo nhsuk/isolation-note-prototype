@@ -20,6 +20,20 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      {% if error %}
+        {% if noAnswer %}
+          {{ errorSummary({
+            "titleText": "There is a problem",
+            "errorList": [
+              {
+                "text": "Select an option",
+                "href": "#self-isolate-1"
+              }
+            ]
+          }) }}
+        {% endif %}
+      {% endif %}
+
       <form method="post" action="/{{version}}/screener-question/answer">
 
         <div class="nhsuk-form-group">
@@ -36,13 +50,13 @@
             
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="self-isolate-1" name="self-isolate" type="radio" value="yes" {{ checked("self-isolate", "yes") }}>
+                <input class="nhsuk-radios__input" id="self-isolate-1" name="self-isolate" type="radio" value="Yes" {{ checked("self-isolate", "Yes") }}>
                 <label class="nhsuk-label nhsuk-radios__label" for="self-isolate-1">
                   Yes
                 </label>
               </div>
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="self-isolate-2" name="self-isolate" type="radio" value="no" {{ checked("self-isolate", "no") }}>
+                <input class="nhsuk-radios__input" id="self-isolate-2" name="self-isolate" type="radio" value="No" {{ checked("self-isolate", "No") }}>
                 <label class="nhsuk-label nhsuk-radios__label" for="self-isolate-2">
                   No
                 </label>

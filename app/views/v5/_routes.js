@@ -34,7 +34,6 @@ router.post('/v7/do-you-know-nhs-number', function (req, res) {
 
 })
 
-
 // What is your name?
 router.post('/v5/what-is-your-name', function (req, res) {
 
@@ -54,12 +53,10 @@ router.post('/v5/what-is-your-name', function (req, res) {
       res.redirect('/v5/what-is-your-dob')
     }
   }
-
 })
 
-
 // What is your date of birth?
-router.post('/v7/what-is-your-dob', function (req, res) {
+router.post('/v5/what-is-your-dob', function (req, res) {
 
   let day = req.session.data['dob-day']
   let month = req.session.data['dob-month']
@@ -68,27 +65,27 @@ router.post('/v7/what-is-your-dob', function (req, res) {
   if (day == ""){
     if (month == ""){
       if (year == ""){
-        res.render('v7/what-is-your-dob', {error: 1, noDay: 1, noMonth: 1, noYear: 1})
+        res.render('v5/what-is-your-dob', {error: 1, noDay: 1, noMonth: 1, noYear: 1})
       } else {
-        res.render('v7/what-is-your-dob', {error: 1, noDay: 1, noMonth: 1})
+        res.render('v5/what-is-your-dob', {error: 1, noDay: 1, noMonth: 1})
       }
     } else {
       if (year == ""){
-        res.render('v7/what-is-your-dob', {error: 1, noDay: 1, noYear: 1})
+        res.render('v5/what-is-your-dob', {error: 1, noDay: 1, noYear: 1})
       } else {
-        res.render('v7/what-is-your-dob', {error: 1, noDay: 1})
+        res.render('v5/what-is-your-dob', {error: 1, noDay: 1})
       }
     }
   } else {
     if (month == ""){
       if (year == ""){
-        res.render('v7/what-is-your-dob', {error: 1, noMonth: 1, noYear: 1})
+        res.render('v5/what-is-your-dob', {error: 1, noMonth: 1, noYear: 1})
       } else {
-        res.render('v7/what-is-your-dob', {error: 1, noMonth: 1})
+        res.render('v5/what-is-your-dob', {error: 1, noMonth: 1})
       }
     } else {
       if (year == ""){
-        res.render('v7/what-is-your-dob', {error: 1, noYear: 1})
+        res.render('v5/what-is-your-dob', {error: 1, noYear: 1})
       } else {
 
         // quick hack to check for under 16 - just checks the year so not accurate
@@ -96,7 +93,7 @@ router.post('/v7/what-is-your-dob', function (req, res) {
 
         if (!(dateRegex.test(year))) {
           // not a real date, just carry on
-          res.redirect('/v7/what-is-your-postcode')
+          res.redirect('/v5/what-is-your-email')
         } else {
           // is a valid date so do check
           let currentYear = new Date().getFullYear()
@@ -104,9 +101,9 @@ router.post('/v7/what-is-your-dob', function (req, res) {
 
           if (year > currentYearMinusSixteen) {
             // less than sixteen
-            res.render('v7/what-is-your-dob', {error: 1, lessThanSixteen: 1})
+            res.render('v5/what-is-your-dob', {error: 1, lessThanSixteen: 1})
           } else {
-            res.redirect('/v7/what-is-your-postcode')
+            res.redirect('/v5/what-is-your-email')
           }
         }
 
@@ -116,100 +113,34 @@ router.post('/v7/what-is-your-dob', function (req, res) {
 
 })
 
+// What is your email?
+router.post('/v5/what-is-your-email', function (req, res) {
 
-// What is your postcode?
-router.post('/v7/what-is-your-postcode', function (req, res) {
+  let email = req.session.data['email']
 
-  let postcode = req.session.data['postcode']
-
-  if (postcode == ""){
-    res.render('v7/what-is-your-postcode', {error: 1, noPostcode: 1})
+  if (email == ""){
+    res.render('v5/what-is-your-email', {error: 1, noEmail: 1})
   } else {
-    if (postcode.toLowerCase().startsWith('im')){
-      res.redirect('/v7/check-your-answers')
-    } else {
-      res.redirect('/v7/accessible-format')
-    }
+    res.redirect('/v5/check-your-answers')
   }
 
 })
 
+// What date do you need this note to start from?
+router.post('/v5/what-is-your-email', function (req, res) {
 
-// Do you need your letter in an accessible format?
-router.post('/v7/accessible-format', function (req, res) {
+  let email = req.session.data['email']
 
-  let checked = req.body['format']
-
-  if (typeof checked == "undefined"){
-    res.render('v7/accessible-format', {error: 1, noFormat: 1})
+  if (email == ""){
+    res.render('v5/what-is-your-email', {error: 1, noEmail: 1})
   } else {
-    if (checked == "Not requested"){
-      res.redirect('/v7/another-language')
-    } else {
-      res.redirect('/v7/accessible-type')
-    }
+    res.redirect('/v5/check-your-answers')
   }
 
 })
-
-// What accessible format do you need?
-router.post('/v7/accessible-type', function (req, res) {
-
-  let checked = req.body['accessible-type']
-
-  if (typeof checked == "undefined"){
-    res.render('v7/accessible-type', {error: 1, noFormat: 1})
-  } else {
-    if (checked == "Not requested"){
-      res.redirect('/v7/accessible-type')
-    } else {
-      res.redirect('/v7/another-language')
-    }
-  }
-
-})
-
-
-
-
-
-// Do you need information about your letter in another language?
-router.post('/v7/another-language', function (req, res) {
-
-  let anotherLanguage = req.session.data['another-language']
-
-  if (typeof anotherLanguage == "undefined"){
-    res.render('v7/another-language', {error: 1, noOtherLanguage: 1})
-  } else {
-    if (anotherLanguage == "Yes"){
-      res.redirect('/v7/languages')
-    }
-    else {
-      // reset language value from any previous session
-      req.session.data['language'] = ""
-      res.redirect('/v7/check-your-answers')
-    }
-  }
-
-})
-
-
-// Which language do you need this information in?
-router.post('/v7/languages', function (req, res) {
-
-  let language = req.session.data['language']
-
-  if ((typeof language == "undefined") || (language == "")){
-    res.render('v7/languages', {error: 1, noLanguage: 1})
-  } else {
-    res.redirect('/v7/check-your-answers')
-  }
-
-})
-
 
 // Check your answers
-router.post('/v7/check-your-answers', function (req, res) {
+router.post('/v5/check-your-answers', function (req, res) {
 
   // reset some session variables so doesn't remember previous data
   if (req.session.data['know-nhs'] == "No") {
@@ -223,22 +154,20 @@ router.post('/v7/check-your-answers', function (req, res) {
     req.session.data['language'] = ""
   }
 
-  res.render('v7/check-your-answers')
-
+  res.render('v5/check-your-answers')
 })
 
 
 // How would you like to be contacted if your letter request is not successful?
-router.post('/v7/how-would-you-like-to-be-contacted', function (req, res) {
+router.post('/v5/how-would-you-like-to-be-contacted', function (req, res) {
 
   let contacted = req.session.data['contacted']
 
   if ((typeof contacted == "undefined") || (contacted == "")){
-    res.render('v7/how-would-you-like-to-be-contacted', {error: 1, noContact: 1})
+    res.render('v5/how-would-you-like-to-be-contacted', {error: 1, noContact: 1})
   } else {
-    res.redirect('/v7/details-submitted')
+    res.redirect('/v5/details-submitted')
   }
-
 })
 
 module.exports = router

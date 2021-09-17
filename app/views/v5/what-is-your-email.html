@@ -20,7 +20,21 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{version}}/check-your-answers" method="post">
+      {% if error %}
+        {% if noEmail %}
+          {{ errorSummary({
+            "titleText": "There is a problem",
+            "errorList": [
+              {
+                "text": "Enter your email adress",
+                "href": "#email"
+              }
+            ]
+          }) }}
+        {% endif %}
+      {% endif %}
+
+      <form action="/{{version}}/what-is-your-email" method="post">
 
         <div class="nhsuk-form-group">
           <h1 class="nhsuk-label-wrapper">
